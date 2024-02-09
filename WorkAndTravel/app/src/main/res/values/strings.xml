@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">USA     SUMMER Work and Travel </string>
+    <string name="usa">What is Work and Travel?</string>
+    <string name="txt1">The most popular program for international cultural exchange</string>
+    <string name="txt2">More than 100 participating countries</string>
+    <string name="txt3">Opportunity to spend the summer in the USA and immerse yourself in the country is culture</string>
+    <string name="txt4">Chance to make friends from different countrie</string>
+    <string name="txt5">Work period 8 may - 1 september</string>
+    <string name="txt6">Job options : supermarket, swimming pools, water parks, hotels, cafes and restaurants</string>
+    <string name="txt7">Salary: from 10$ to 18 per hour</string>
+    <string name="txt8">Chance to make friends from different countrie</string>
+
+    <string name="txt9">The travel period lasts no more than 30 days from the end of work. You can travel to all states on your own or with the help of travel agents</string>
+
+</resources>

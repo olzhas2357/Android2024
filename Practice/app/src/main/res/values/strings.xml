@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Practice</string>
+    <string name="first_name_format">First Name: %1$s</string>
+</resources>

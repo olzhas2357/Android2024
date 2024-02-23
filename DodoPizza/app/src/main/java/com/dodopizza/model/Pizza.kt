@@ -7,5 +7,5 @@ data class Pizza(
     val title: String,
     val imageRes: Int,
     val description: String,
-    val price: Int
+    val price: String
 )

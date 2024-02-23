@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Dodo Pizza</string>
+    <string name="pizza">pizza</string>
+    <string name="pizza1">pizza</string>
+    <string name="comboName">Комбо за 3 900 KZT</string>
+    <string name="comboDesciption">Кому-кому только одному. Маленькая пицца, закуска, напиток и соус. Цена комбо зависит от выбранных продуктов и может быть увеличена</string>
 </resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_corner"
+    android:layout_margin="20dp"
+    android:elevation="4dp">
+
+    <ImageView
+        android:id="@+id/combo_img"
+        android:layout_width="match_parent"
+        android:layout_height="283dp"
+        tools:srcCompat="@drawable/combo" />
+    <TextView
+        android:id="@+id/combo_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/comboName"
+        android:textStyle="bold"
+        android:textSize="25dp"/>
+    <TextView
+        android:id="@+id/combo_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/comboDesciption"
+        android:textSize="18dp"
+        android:padding="8dp"/>
+
+    <Button
+        android:id="@+id/combo_price"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:backgroundTint="@color/yellow"
+        android:text="3 900"
+        android:textColor="@color/red"
+        android:textSize="18dp" />
+</LinearLayout>

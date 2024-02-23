@@ -8,7 +8,6 @@ import com.dodopizza.model.Pizza
 
 class PizzaAdapter (
             private val onPizzaClick: (Pizza)-> Unit,
-            private val onPizzaRemoved: (Pizza)-> Unit
         ):RecyclerView.Adapter<PizzaAdapter.ViewHolder>(){
 
     private val pizzaList: ArrayList<Pizza> = ArrayList()
@@ -42,12 +41,13 @@ class PizzaAdapter (
                 pizzaDescription.text = pizza.description
                 pizzaPrice.text= pizza.price.toString()
 
+                pizzaPrice.setOnClickListener {
+                    onPizzaClick(pizza)
+                }
                 root.setOnClickListener{
                     onPizzaClick(pizza)
                 }
-                removePizza.setOnClickListener{
-                    onPizzaRemoved(pizza)
-                }
+
 
             }
         }

@@ -1,71 +1,55 @@
 package com.dodopizza
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.MotionEvent
-import android.widget.Button
-import android.widget.EditText
-import androidx.appcompat.widget.SearchView
+import android.widget.Toast
 import com.dodopizza.adapter.PizzaAdapter
 import com.dodopizza.databinding.ActivityMainBinding
 import com.dodopizza.model.Pizza
 import com.dodopizza.model.PizzaDataSource
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
-    private var pizza_adapter: PizzaAdapter? = null
+    private var adapter: PizzaAdapter? = null
 
-    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val tocombo: Button = binding.toCombo
-        tocombo.setOnClickListener {
-            val intent = Intent(this, ThirdActivity::class.java)
-            startActivity(intent)
-        }
-
-        pizza_adapter = PizzaAdapter(
+        PizzaAdapter(
             onPizzaClick = {
-                handlePizzaClick(it)
+//                Toast.makeText(this, it.title, Toast.LENGTH_SHORT).show()
+                handleMovieClick(it)
+            },
+            onPizzaRemoved ={
+                handlePizzaRemoval(it)
             }
         )
-        binding.pizzaView.adapter = pizza_adapter
-        pizza_adapter?.setData(PizzaDataSource.pizzaList)
-
-        binding.edtView.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        adapter  = PizzaAdapter(
+            onPizzaClick = {
+//                Toast.makeText(this, it.title, Toast.LENGTH_SHORT).show()
+                handleMovieClick(it)
+            },
+            onPizzaRemoved ={
+                handlePizzaRemoval(it)
             }
+        )
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val searchQuery = s.toString()
-                val list = PizzaDataSource.pizzaList.filter {
-                    it.title.contains(searchQuery)
-                }
-                pizza_adapter?.setData(ArrayList(list))
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-            }
-        })
+        binding.recyclerView.adapter = adapter
+        adapter?.setData(PizzaDataSource.pizzaList)
 
     }
-    private fun handlePizzaClick(pizza: Pizza){
+    private fun handleMovieClick(pizza: Pizza){
         val intent = Intent(this, SecondActivity::class.java)
-        intent.putExtra(SecondActivity.KEY_RESULT, pizza.title)
-        intent.putExtra(SecondActivity.KEY_INGREDIENT, pizza.description)
+        intent.putExtra(SecondActivity.KEY_RESULT, pizza.description)
         intent.putExtra(SecondActivity.KEY_IMAGE, pizza.imageRes)
-        intent.putExtra(SecondActivity.KEY_PRICE, pizza.price)
         startActivity(intent)
     }
-
+    private fun handlePizzaRemoval(pizza: Pizza){
+        val pizzaList = PizzaDataSource.pizzaList
+        pizzaList.remove(pizza)
+        adapter?.setData(pizzaList)
+    }
 }

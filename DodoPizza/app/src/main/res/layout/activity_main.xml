@@ -7,36 +7,12 @@
     tools:context=".MainActivity"
     tools:ignore="NamespaceTypo"
     android:orientation="vertical"
-    android:background="@color/white"
-    android:padding="13dp">
-
-
-    <EditText
-        android:id="@+id/edt_view"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:hint="Search"
-        android:textSize="20dp"
-        android:gravity="center_horizontal|center"
-        android:background="@drawable/search_radius"
-        android:inputType="text"/>
-
-    <Button
-        android:id="@+id/toCombo"
-        android:layout_width="139dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/gray"
-        android:text="Комбо"
-        android:textColor="@color/black"
-        android:textSize="12dp"/>
+    android:padding="16dp">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/pizza_view"
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 
